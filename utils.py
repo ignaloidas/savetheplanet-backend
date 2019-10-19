@@ -27,3 +27,8 @@ def require_authentication(func):
 def generate_random_string(stringLength):
     letters = string.ascii_lowercase
     return "".join(random.choice(letters) for i in range(stringLength))
+
+
+def chunks(iter, size):
+    for i in range(0, len(iter), size):
+        yield iter[i:i+size]
