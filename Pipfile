@@ -16,6 +16,7 @@ pytz = "*"
 ipython = "*"
 firebase-admin = "*"
 python-dotenv = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.8"
