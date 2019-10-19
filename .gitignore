@@ -13,3 +13,5 @@ env.bak/
 venv.bak/
 
 .vscode
+
+firebase_creds.json

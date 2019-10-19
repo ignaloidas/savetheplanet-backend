@@ -1,11 +1,17 @@
-from flask import Flask
-from routes import routes
 import os
+
+import firebase_admin
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
+from routes import routes
+import dotenv
+
+dotenv.load_dotenv()
 
 db = SQLAlchemy()
 login_manager = LoginManager()
+firebase_app = firebase_admin.initialize_app()
 
 
 def create_app(test_config=None):

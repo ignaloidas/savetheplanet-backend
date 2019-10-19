@@ -12,6 +12,10 @@ flask = "*"
 flask-sqlalchemy = "*"
 celery = "*"
 flask-login = "*"
+pytz = "*"
+ipython = "*"
+firebase-admin = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.8"
