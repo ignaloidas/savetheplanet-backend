@@ -15,7 +15,7 @@ api = Blueprint("api", __name__)
 @api.route("/update_location", methods=["POST"])
 @require_authentication
 def update_location(user: User):
-    if not request.is_json():
+    if not request.is_json:
         abort(400, "Not JSON")
     data = request.json
 
@@ -39,7 +39,7 @@ def update_location(user: User):
 
 @api.route("/register", methods=["POST"])
 def register():
-    if not request.is_json():
+    if not request.is_json:
         abort(400, "Not JSON")
     data = request.json
 
@@ -72,7 +72,7 @@ def register():
 
 @api.route("/login", methods=["POST"])
 def login():
-    if not request.is_json():
+    if not request.is_json:
         abort(400, "Not JSON")
     data = request.json
 
