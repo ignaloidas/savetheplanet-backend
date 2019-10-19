@@ -1,7 +1,7 @@
-# fmt:off
 import random
 import string
 from functools import wraps
+from math import atan2, cos, radians, sin, sqrt
 
 from flask import request
 from flask_login import current_user
@@ -31,4 +31,18 @@ def generate_random_string(stringLength):
 
 def chunks(iter, size):
     for i in range(0, len(iter), size):
-        yield iter[i:i+size]
+        yield iter[i : i + size]
+
+
+def distance_between_points(lon1, lon2, lat1, lat2):
+    lon1 = radians(lon1)
+    lon1 = radians(lon2)
+    lat1 = radians(lat1)
+    lat2 = radians(lat2)
+    R = 6373.0
+    dlon = lon2 - lon1
+    dlat = lat2 - lat1
+    a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
+    c = 2 * atan2(sqrt(a), sqrt(1 - a))
+    distance = R * c
+    return distance
