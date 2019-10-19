@@ -51,6 +51,12 @@ def register():
     if not (password and email):
         abort(400, "Password and email not given")
 
+    if User.query.filter(User.email == email).count() > 0:
+        abort(400, "email already registered")
+
+    if len(password) < 6:
+        abort(400, "password too short")
+
     token = generate_random_string(64)
 
     firebase_user = auth.create_user(
@@ -96,4 +102,4 @@ def get_firebase_token(user: User):
 
     custom_token = auth.create_custom_token(uid)
 
-    return jsonify(firebase_token=custom_token), 200
+    return jsonify(firebase_token=str(custom_token)), 200
