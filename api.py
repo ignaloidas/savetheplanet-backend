@@ -5,7 +5,7 @@ from firebase_admin import auth
 from flask import Blueprint, abort, jsonify, request
 from flask_login import login_user
 
-from app import db, firebase_app
+from app import db
 from models import User
 from utils import generate_random_string, require_authentication
 
