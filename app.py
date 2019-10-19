@@ -10,7 +10,7 @@ dotenv.load_dotenv()
 
 db = SQLAlchemy()
 login_manager = LoginManager()
-# firebase_app = firebase_admin.initialize_app()
+firebase_app = firebase_admin.initialize_app()
 
 
 def create_app(test_config=None):
