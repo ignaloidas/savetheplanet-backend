@@ -102,4 +102,4 @@ def get_firebase_token(user: User):
 
     custom_token = auth.create_custom_token(uid)
 
-    return jsonify(firebase_token=str(custom_token)), 200
+    return jsonify(firebase_token=custom_token.decode()), 200
