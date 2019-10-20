@@ -10,7 +10,7 @@ def send_firebase_notifications(users: List[User], data_to_send):
     failed_users = []
     for user in users:
         for subscription in user.firebase_subscriptions:
-            message = messaging.MulticastMessage(tokens=token_group, data=data_to_send)
+            message = messaging.Message(token=subscription.firebase_token, data=data_to_send)
             try:
                 response = messaging.send_multicast(message)
             except:
