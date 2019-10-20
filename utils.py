@@ -3,7 +3,7 @@ import string
 from functools import wraps
 from math import atan2, cos, radians, sin, sqrt, asin, degrees, pi
 
-from flask import request
+from flask import request, abort
 from flask_login import current_user
 
 from models import User

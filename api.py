@@ -125,4 +125,4 @@ def register_fcm_token(user: User):
     db.session.add(subscription)
     db.session.commit()
 
-    return 200
+    return "", 200
