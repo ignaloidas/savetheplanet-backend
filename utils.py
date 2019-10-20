@@ -61,6 +61,6 @@ def circle_to_polygon(center, radius):
     n = 32
     coords = []
     for x in range(n):
-        coords.append(_offset(center, distance, 2 * pi * x / n))
+        coords.append(_offset(center, radius, 2 * pi * x / n))
 
     return coords
