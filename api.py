@@ -12,6 +12,11 @@ from utils import generate_random_string, require_authentication
 api = Blueprint("api", __name__)
 
 
+@api.errorhandler(Exception)
+def resource_not_found(e):
+    return jsonify(error=str(e)), 400
+
+
 @api.route("/update_location", methods=["POST"])
 @require_authentication
 def update_location(user: User):
