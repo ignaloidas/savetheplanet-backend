@@ -1,7 +1,7 @@
 import random
 import string
 from functools import wraps
-from math import atan2, cos, radians, sin, sqrt
+from math import atan2, cos, radians, sin, sqrt, asin, degrees, pi
 
 from flask import request
 from flask_login import current_user
@@ -46,3 +46,21 @@ def distance_between_points(lon1, lon2, lat1, lat2):
     c = 2 * atan2(sqrt(a), sqrt(1 - a))
     distance = R * c
     return distance
+
+
+def _offset(c, distance, bearing):
+    lat1 = radians(c[0])
+    lon1 = radians(c[1])
+    dByR = distance / 6378137
+    lat = asin(sin(lat1) * cos(dByR) + cos(lat1) * sin(dByR) * cos(bearing))
+    lon = lon1 + atan2(sin(bearing) * sin(dByR) * cos(lat1), cos(dByR) - sin(lat1) * sin(lat))
+    return [degrees(lat), degrees(lon)]
+
+
+def circle_to_polygon(center, radius):
+    n = 32
+    coords = []
+    for x in range(n):
+        coords.append(_offset(center, distance, 2 * pi * x / n))
+
+    return coords

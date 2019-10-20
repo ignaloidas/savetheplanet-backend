@@ -18,6 +18,7 @@ ipython = "*"
 firebase-admin = "*"
 python-dotenv = "*"
 pandas = "*"
+redis = "*"
 
 [requires]
 python_version = "3.8"

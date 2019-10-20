@@ -39,6 +39,7 @@ class FirebaseSubscription(db.Model):
 
 
 class Earthquake(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
     position_lat = db.Column(db.Float(), nullable=False)
     position_lon = db.Column(db.Float(), nullable=False)
     magnitude = db.Column(db.Float(), nullable=False)

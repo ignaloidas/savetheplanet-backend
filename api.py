@@ -6,7 +6,7 @@ from flask import Blueprint, abort, jsonify, request
 from flask_login import login_user
 
 from app import db
-from models import User, FirestoreSubscription
+from models import User, FirebaseSubscription
 from utils import generate_random_string, require_authentication
 
 api = Blueprint("api", __name__)
@@ -105,7 +105,7 @@ def get_firebase_token(user: User):
     return jsonify(firebase_token=custom_token.decode()), 200
 
 
-@api.route("/register_fcm_token", methonds=["POST"])
+@api.route("/register_fcm_token", methods=["POST"])
 @require_authentication
 def register_fcm_token(user: User):
     if not request.is_json:

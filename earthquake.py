@@ -7,7 +7,7 @@ import pandas as pd
 import pytz
 import requests
 
-from .models import Earthquake
+from models import Earthquake
 
 
 def get_earthquake_data(time_in_minutes):
@@ -36,7 +36,7 @@ def get_clean_data(time_in_minutes=60):
             position_lat=latitude,
             position_lon=longitude,
             magnitude=mag,
-            occurred_at=datetime.datetime.utcfromtimestamp(time / 1000),
+            occurred_at=datetime.datetime.strptime(time, "%Y-%m-%dT%H:%M:%S.%fZ"),
         )
         disasters.append(earthquake)
 
